@@ -1,0 +1,31 @@
+# requirements.txt — Medical KG + BioMistral evaluation pipeline
+#
+# Install with:  pip install -r requirements.txt
+# On Colab:      %pip install -r requirements.txt
+#
+# Note: torch is listed but Colab ships it pre-installed; on a bare machine
+#       install the CUDA-enabled build manually from https://pytorch.org
+
+# ── LLM inference (local BioMistral) ─────────────────────────────────────────
+torch>=2.1.0
+transformers>=4.40.0
+accelerate>=0.27.0
+bitsandbytes>=0.43.0          # 4-bit quantisation (optional but recommended on GPU)
+sentencepiece>=0.1.99         # BioMistral tokeniser
+
+# ── Evaluation metrics ────────────────────────────────────────────────────────
+rouge-score>=0.1.3
+bert-score>=0.3.13            # BERTScore-F1 (most informative metric for medical QA)
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+datasets>=2.18.0              # FirstAidQA dataset from HuggingFace Hub
+huggingface_hub>=0.22.0       # model/dataset downloads
+
+# ── KG builder (kg_builder_v3.py) — only needed to rebuild the KG from PDF ───
+networkx>=3.2
+python-dotenv>=1.0.0
+google-generativeai>=0.5.0    # Gemini KG extraction (optional — skip if you have medical_kg_v3.json)
+openai>=1.0.0                 # GPT-4o-mini KG extraction (optional)
+
+# ── API calls ─────────────────────────────────────────────────────────────────
+requests>=2.31.0
