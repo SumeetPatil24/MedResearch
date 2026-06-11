@@ -20,7 +20,7 @@ from typing import Optional
 
 # ── API Keys (hardcoded for research use — remove before sharing) ─────────────
 OPENAI_API_KEY = "YOUR_GPT4O_MINI_KEY_HERE"   # ← paste your key here
-GROQ_API_KEY   = os.environ.get("GROQ_API_KEY", "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")  # used if no OpenAI key
+GROQ_API_KEY   = os.environ.get("GROQ_API_KEY", "Your_groq_api_key")  # used if no OpenAI key
 # ─────────────────────────────────────────────────────────────────────────────
 
 METRIC_KEYS = [
